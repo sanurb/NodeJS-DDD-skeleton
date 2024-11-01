@@ -11,20 +11,27 @@ jobs:
   build:
     name: Check code quality and unit tests
     runs-on: ubuntu-latest
+    env:
+      COREPACK_ENABLE_AUTO_PIN: 0
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - name: Checkout Commit
+        uses: actions/checkout@v4
         with:
-          version: 7
-
-      - name: Set Node.js
-        uses: actions/setup-node@v3
+          fetch-depth: 0
+          
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 18.x
           cache: pnpm
 
+      - name: Install pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@next-9 --activate
+        
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Build API
         run: pnpm build
