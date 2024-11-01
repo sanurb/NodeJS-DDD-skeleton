@@ -1,0 +1,7 @@
+node_modules/**
+**/.eslintrc.js
+**/jest.config.js
+**/cucumber.js
+**/commitlint.config.js
+dist/
+**/Setup.js
