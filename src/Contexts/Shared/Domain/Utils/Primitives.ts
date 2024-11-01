@@ -1,6 +1,6 @@
 // This utility has been extracted from Codely repository
 
-import { PropertiesOf } from './PropertiesOf';
+import type { PropertiesOf } from './PropertiesOf';
 
 type PrimitiveTypes = string | number | boolean | Date | undefined | null;
 

@@ -1,7 +1,7 @@
-import { AggregateRoot, Primitives } from '../../../Shared/Domain';
-import { PropertiesOf } from '../../../Shared/Domain/Utils/PropertiesOf';
-import { DummyId } from './DummyId';
-import { DummyName } from './DummyName';
+import { type Primitives, AggregateRoot } from '../../../Shared/Domain';
+import type { PropertiesOf } from '../../../Shared/Domain/Utils/PropertiesOf';
+import type { DummyId } from './DummyId';
+import type { DummyName } from './DummyName';
 import { DummyCreatedDomainEvent } from './Events/DummyCreatedDomainEvent';
 
 type Args = PropertiesOf<Dummy>;

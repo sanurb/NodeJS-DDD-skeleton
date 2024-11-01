@@ -119,7 +119,7 @@ module.exports = {
     // good practises
     camelcase: ['error', { ignoreImports: true, properties: 'never' }],
     eqeqeq: 'error',
-    'new-cap': 'error',
+    'new-cap': 'off',
     'no-array-constructor': 'error',
     'no-console': ['error', { allow: ['error'] }],
     'no-else-return': ['error', { allowElseIf: false }],
