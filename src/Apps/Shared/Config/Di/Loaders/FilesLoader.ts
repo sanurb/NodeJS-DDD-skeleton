@@ -1,27 +1,27 @@
 import { join } from 'node:path';
 
-import { globSync as sync } from 'tinyglobby';
+import { glob } from 'fast-glob';
 
 const rootPath = join(__dirname, '../../../../../');
 
-const paths = {
-  controllers: join(rootPath, '/Apps/**/Controllers/**/*Controller.{ts,js}'),
-  useCases: join(rootPath, '/Contexts/**/Application/UseCases/**/*.{ts,js}'),
-  eventHandlers: join(rootPath, '/Contexts/**/Application/EventHandlers/**/*.{ts,js}'),
-  infrastructureServices: join(rootPath, '/Contexts/**/Infrastructure/**/*.{ts,js}'),
-};
+const searchPatterns = [
+  `${rootPath}/Apps/**/Controllers/**/*Controller.{ts,js}`,
+  `${rootPath}/Contexts/**/Application/UseCases/**/*.{ts,js}`,
+  `${rootPath}/Contexts/**/Application/EventHandlers/**/*.{ts,js}`,
+  `${rootPath}/Contexts/**/Infrastructure/**/*.{ts,js}`,
+];
 
 /**
  * Is necessary to load all files before register the dependencies
  * because the decorators are executed when the file is imported
  */
 export const filesLoader = async (): Promise<void> => {
-  const files = sync([
-    paths.controllers,
-    paths.useCases,
-    paths.eventHandlers,
-    paths.infrastructureServices,
-  ]);
+  try {
+    const files = await glob(searchPatterns, { onlyFiles: true });
 
-  await Promise.all(files.map(file => import(file)));
+    await Promise.all(files.map(file => import(file)));
+  } catch (error) {
+    console.error('Error loading files:', error);
+    throw error;
+  }
 };
