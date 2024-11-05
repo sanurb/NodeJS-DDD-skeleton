@@ -1,5 +1,5 @@
-import { EventHandler } from '../Bus/EventHandler';
-import { Class } from '../Utils/Class';
+import { EventHandler } from "../Bus/EventHandler";
+import { Class } from "../Utils/Class";
 
 type Handler = Class<EventHandler>;
 export const eventHandlers = new Set<Handler>();

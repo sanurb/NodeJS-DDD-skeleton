@@ -10,7 +10,7 @@
  * while maintaining explicit control flow and avoiding unintentional exceptions.
  */
 
-import { AsyncResult, Err, Ok, type Result } from './Result';
+import { AsyncResult, Err, Ok, type Result } from "./Result";
 
 /**
  * Unwraps a `Result`, returning the contained `Ok` value or throwing an `UnwrapError`.
@@ -61,7 +61,7 @@ class UnwrapError<E> extends Error {
   public readonly error: E;
 
   constructor(error: E) {
-    super('UnwrapError');
+    super("UnwrapError");
     this.error = error;
   }
 }

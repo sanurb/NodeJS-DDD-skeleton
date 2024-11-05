@@ -1,8 +1,8 @@
-import { join } from 'node:path';
+import { join } from "node:path";
 
-import { glob } from 'fast-glob';
+import { glob } from "fast-glob";
 
-const rootPath = join(__dirname, '../../../../../');
+const rootPath = join(__dirname, "../../../../../");
 
 const searchPatterns = [
   `${rootPath}/Apps/**/Controllers/**/*Controller.{ts,js}`,
@@ -19,9 +19,9 @@ export const filesLoader = async (): Promise<void> => {
   try {
     const files = await glob(searchPatterns, { onlyFiles: true });
 
-    await Promise.all(files.map(file => import(file)));
+    await Promise.all(files.map((file) => import(file)));
   } catch (error) {
-    console.error('Error loading files:', error);
+    console.error("Error loading files:", error);
     throw error;
   }
 };

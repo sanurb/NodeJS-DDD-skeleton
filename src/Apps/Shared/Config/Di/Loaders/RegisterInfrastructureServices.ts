@@ -1,8 +1,8 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient } from "mongodb";
 
-import { env } from '../../env';
-import { SessionMongoDbClient } from '../../MongoDbConfig';
-import { Container } from '../DiContainer';
+import { SessionMongoDbClient } from "../../MongoDbConfig";
+import { env } from "../../env";
+import { Container } from "../DiContainer";
 
 export const registerInfrastructureServices = (container: Container): void => {
   // Mongo

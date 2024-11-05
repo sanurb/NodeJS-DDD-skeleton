@@ -1,22 +1,18 @@
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
-import { RouteHandlerMethod } from 'fastify/types/route';
+import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import { RouteHandlerMethod } from "fastify/types/route";
 
-import { Class } from '../../../../Contexts/Shared/Domain';
-import { ControllerArgs, controllers } from '../../../../Contexts/Shared/Infrastructure';
-import { BaseController } from '../../Controllers/BaseController';
-import { container } from '../Di/DiContainer';
+import { Class } from "../../../../Contexts/Shared/Domain";
+import { ControllerArgs, controllers } from "../../../../Contexts/Shared/Infrastructure";
+import { BaseController } from "../../Controllers/BaseController";
+import { container } from "../Di/DiContainer";
 
 const loadHealthCheck = (server: FastifyInstance): void => {
-  server.get('/health-check', (_request: FastifyRequest, response: FastifyReply) => {
-    void response.send({ status: 'ok' });
+  server.get("/health-check", (_request: FastifyRequest, response: FastifyReply) => {
+    void response.send({ status: "ok" });
   });
 };
 
-const loadRoutePath = (
-  server: FastifyInstance,
-  controllerHandler: RouteHandlerMethod,
-  args: ControllerArgs,
-): void => {
+const loadRoutePath = (server: FastifyInstance, controllerHandler: RouteHandlerMethod, args: ControllerArgs): void => {
   const middlewares = args.middlewares || [];
 
   server.route({
@@ -53,6 +49,6 @@ export const loadRoutes = async (server: FastifyInstance): Promise<void> => {
       loadHealthCheck(instance);
       next();
     },
-    { prefix: '/api/v1' },
+    { prefix: "/api/v1" },
   );
 };

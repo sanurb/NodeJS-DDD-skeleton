@@ -1,22 +1,19 @@
-import { isDomainImplementation, Nullable } from '../../../Shared/Domain';
-import { MongoDbRepository } from '../../../Shared/Infrastructure';
-import { Dummy } from '../Domain/Dummy';
-import { DummyId } from '../Domain/DummyId';
-import { DummyRepository } from '../Domain/DummyRepository';
-import { DummySchema } from './DummySchema';
-import { MongoDbDummyMapper } from './MongoDbDummyMapper';
+import { Nullable, isDomainImplementation } from "../../../Shared/Domain";
+import { MongoDbRepository } from "../../../Shared/Infrastructure";
+import { Dummy } from "../Domain/Dummy";
+import { DummyId } from "../Domain/DummyId";
+import { DummyRepository } from "../Domain/DummyRepository";
+import { DummySchema } from "./DummySchema";
+import { MongoDbDummyMapper } from "./MongoDbDummyMapper";
 
 @isDomainImplementation(DummyRepository)
-export class MongoDbDummyRepository
-  extends MongoDbRepository<DummySchema>
-  implements DummyRepository
-{
+export class MongoDbDummyRepository extends MongoDbRepository<DummySchema> implements DummyRepository {
   protected collectionName(): string {
-    return 'Dummies';
+    return "Dummies";
   }
 
   public async find(id: DummyId): Promise<Nullable<Dummy>> {
-    let dummy;
+    let dummy: Nullable<Dummy>;
 
     const foundDummy = await this.searchOne({ _id: id.value });
 

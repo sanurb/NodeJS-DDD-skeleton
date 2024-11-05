@@ -1,4 +1,4 @@
-import { InvalidArgumentError } from '../Exceptions/InvalidArgumentError';
+import { InvalidArgumentError } from "../Exceptions/InvalidArgumentError";
 
 export abstract class ValueObject<T> {
   protected constructor(protected readonly _value: T) {
@@ -15,7 +15,7 @@ export abstract class ValueObject<T> {
 
   protected verifyValueIsDefined(value: T): void {
     if (value === null || value === undefined) {
-      throw new InvalidArgumentError('Value must be defined');
+      throw new InvalidArgumentError("Value must be defined");
     }
   }
 

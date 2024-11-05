@@ -1,4 +1,4 @@
-import { DomainEvent, EventBus, EventHandler, isService } from '../../Domain';
+import { DomainEvent, EventBus, EventHandler, isService } from "../../Domain";
 
 @isService()
 export class InMemorySyncEventBus implements EventBus {
@@ -24,7 +24,7 @@ export class InMemorySyncEventBus implements EventBus {
       const subscribers = this.subscriptions.get(domainEvent.eventName);
       if (subscribers) {
         await Promise.all(
-          subscribers.map(async subscriber => {
+          subscribers.map(async (subscriber) => {
             await subscriber.on(domainEvent);
           }),
         );

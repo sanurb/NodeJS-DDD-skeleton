@@ -1,5 +1,5 @@
-import { Class } from '../Utils/Class';
-import { NewableClass } from '../Utils/NewableClass';
+import { Class } from "../Utils/Class";
+import { NewableClass } from "../Utils/NewableClass";
 
 type Props<Abstraction, Implementation extends Abstraction> = {
   abstraction: Class<Abstraction>;

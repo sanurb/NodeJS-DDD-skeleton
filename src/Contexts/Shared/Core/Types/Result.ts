@@ -125,10 +125,7 @@ export function mapErr<T, E, F>(result: Result<T, E>, fn: (error: E) => F): Resu
  * @param fn - A function that takes the successful value and returns a new `Result`.
  * @returns The result of applying `fn` to the `Ok` value, or the original `Err`.
  */
-export function chain<T, U, E>(
-  result: Result<T, E>,
-  fn: (value: T) => Result<U, E>,
-): Result<U, E> {
+export function chain<T, U, E>(result: Result<T, E>, fn: (value: T) => Result<U, E>): Result<U, E> {
   return isOk(result) ? fn(result.value) : result;
 }
 
@@ -144,10 +141,7 @@ export function chain<T, U, E>(
  * @param fn - A function that takes the error and returns a new `Result`.
  * @returns The result of applying `fn` to the `Err` value, or the original `Ok`.
  */
-export function chainErr<T, E, F>(
-  result: Result<T, E>,
-  fn: (error: E) => Result<T, F>,
-): Result<T, F> {
+export function chainErr<T, E, F>(result: Result<T, E>, fn: (error: E) => Result<T, F>): Result<T, F> {
   return isErr(result) ? fn(result.error) : result;
 }
 
@@ -166,11 +160,7 @@ export function chainErr<T, E, F>(
  * @param onErr - The function to apply to the `Err` value.
  * @returns A new `Result` with both success and error values potentially transformed.
  */
-export function bimap<T, U, E, F>(
-  result: Result<T, E>,
-  onOk: (value: T) => U,
-  onErr: (error: E) => F,
-): Result<U, F> {
+export function bimap<T, U, E, F>(result: Result<T, E>, onOk: (value: T) => U, onErr: (error: E) => F): Result<U, F> {
   return isOk(result) ? Ok(onOk(result.value)) : Err(onErr(result.error));
 }
 
@@ -188,11 +178,7 @@ export function bimap<T, U, E, F>(
  * @param onErr - The function to apply if the `Result` is `Err`.
  * @returns The result of applying the appropriate function to the `Result`.
  */
-export function fold<T, E, U>(
-  result: Result<T, E>,
-  onOk: (value: T) => U,
-  onErr: (error: E) => U,
-): U {
+export function fold<T, E, U>(result: Result<T, E>, onOk: (value: T) => U, onErr: (error: E) => U): U {
   return isOk(result) ? onOk(result.value) : onErr(result.error);
 }
 
@@ -225,10 +211,7 @@ export function unwrapOr<T, E>(result: Result<T, E>, defaultValue: T): T {
  * @param patterns - An object with `Ok` and `Err` functions to handle each case.
  * @returns The result of applying the appropriate function to the `Result`.
  */
-export function match<T, E, U>(
-  result: Result<T, E>,
-  patterns: { Ok: (value: T) => U; Err: (error: E) => U },
-): U {
+export function match<T, E, U>(result: Result<T, E>, patterns: { Ok: (value: T) => U; Err: (error: E) => U }): U {
   return isOk(result) ? patterns.Ok(result.value) : patterns.Err(result.error);
 }
 

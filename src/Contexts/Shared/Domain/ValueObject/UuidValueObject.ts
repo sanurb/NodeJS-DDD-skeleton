@@ -1,6 +1,6 @@
-import { randomUUID } from 'crypto';
+import { randomUUID } from "node:crypto";
 
-import { InvalidArgumentError } from '../Exceptions/InvalidArgumentError';
+import { InvalidArgumentError } from "../Exceptions/InvalidArgumentError";
 
 const REGEX = /^[\da-f]{8}-[\da-f]{4}-[0-5][\da-f]{3}-[089ab][\da-f]{3}-[\da-f]{12}$/i;
 
@@ -15,9 +15,7 @@ export class UuidValueObject {
 
   private ensureIsValidUuid(): void {
     if (!REGEX.test(this.value)) {
-      throw new InvalidArgumentError(
-        `<${this.constructor.name}> does not allow the value <${this.value}>`,
-      );
+      throw new InvalidArgumentError(`<${this.constructor.name}> does not allow the value <${this.value}>`);
     }
   }
 

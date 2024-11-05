@@ -1,9 +1,6 @@
-import { domainImplementations, EventBus } from '../../../../../Contexts/Shared/Domain';
-import {
-  controllers,
-  InMemorySyncEventBus,
-} from '../../../../../Contexts/Shared/Infrastructure';
-import { Container } from '../DiContainer';
+import { EventBus, domainImplementations } from "../../../../../Contexts/Shared/Domain";
+import { InMemorySyncEventBus, controllers } from "../../../../../Contexts/Shared/Infrastructure";
+import { Container } from "../DiContainer";
 
 const registerBuses = (container: Container): void => {
   // Event bus

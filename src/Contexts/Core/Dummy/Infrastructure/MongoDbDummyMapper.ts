@@ -1,9 +1,10 @@
-import { Dummy } from '../Domain/Dummy';
-import { DummyId } from '../Domain/DummyId';
-import { DummyName } from '../Domain/DummyName';
-import { DummySchema } from './DummySchema';
+import { Mapper } from "../../../Shared/Infrastructure/Persistence/Mapper";
+import { Dummy } from "../Domain/Dummy";
+import { DummyId } from "../Domain/DummyId";
+import { DummyName } from "../Domain/DummyName";
+import { DummySchema } from "./DummySchema";
 
-export class MongoDbDummyMapper {
+export class MongoDbDummyMapper implements Mapper<Dummy> {
   public static toDomainModel(schema: DummySchema): Dummy {
     return new Dummy({
       id: new DummyId(schema._id),

@@ -1,8 +1,8 @@
-import { EventBus, isUseCase } from '../../../../Shared/Domain';
-import { Dummy } from '../../Domain/Dummy';
-import { DummyId } from '../../Domain/DummyId';
-import { DummyName } from '../../Domain/DummyName';
-import { DummyRepository } from '../../Domain/DummyRepository';
+import { EventBus, isUseCase } from "../../../../Shared/Domain";
+import { Dummy } from "../../Domain/Dummy";
+import { DummyId } from "../../Domain/DummyId";
+import { DummyName } from "../../Domain/DummyName";
+import { DummyRepository } from "../../Domain/DummyRepository";
 
 type Params = {
   id: string;

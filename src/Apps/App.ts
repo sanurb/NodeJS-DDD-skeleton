@@ -1,9 +1,9 @@
-import 'reflect-metadata';
+import "reflect-metadata";
 
-import * as map from 'source-map-support';
+import * as map from "source-map-support";
 
-import { fastifyServer } from './FastifyServer';
-import { env } from './Shared';
+import { fastifyServer } from "./FastifyServer";
+import { env } from "./Shared";
 
 map.install();
 

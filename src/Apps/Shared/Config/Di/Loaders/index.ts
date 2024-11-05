@@ -1,9 +1,9 @@
-import { container } from '../DiContainer';
-import { addHandlersToEventBus } from './AddHandlersToEventBus';
-import { filesLoader } from './FilesLoader';
-import { registerApplicationDependencies } from './RegisterApplicationDependencies';
-import { registerInfrastructureDependencies } from './RegisterInfrastructureDependencies';
-import { registerInfrastructureServices } from './RegisterInfrastructureServices';
+import { container } from "../DiContainer";
+import { addHandlersToEventBus } from "./AddHandlersToEventBus";
+import { filesLoader } from "./FilesLoader";
+import { registerApplicationDependencies } from "./RegisterApplicationDependencies";
+import { registerInfrastructureDependencies } from "./RegisterInfrastructureDependencies";
+import { registerInfrastructureServices } from "./RegisterInfrastructureServices";
 
 export const loadContainer = async (): Promise<void> => {
   await filesLoader();

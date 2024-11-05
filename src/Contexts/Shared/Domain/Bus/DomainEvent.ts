@@ -1,4 +1,4 @@
-import { UuidValueObject } from '../ValueObject/UuidValueObject';
+import { UuidValueObject } from "../ValueObject/UuidValueObject";
 
 export abstract class DomainEvent {
   public readonly eventId: string;

@@ -1,9 +1,9 @@
 export const CreateDummySchema = {
   body: {
-    type: 'object',
-    required: ['name'],
+    type: "object",
+    required: ["name"],
     properties: {
-      name: { type: 'string' },
+      name: { type: "string" },
     },
   },
 };

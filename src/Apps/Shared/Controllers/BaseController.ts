@@ -1,11 +1,11 @@
-/* eslint-disable @typescript-eslint/ban-types */
-import { FastifyReply, FastifyRequest } from 'fastify';
+import { FastifyReply, FastifyRequest } from "fastify";
 
-import { Nullable } from '../../../Contexts/Shared/Domain';
-import { isController } from '../../../Contexts/Shared/Infrastructure';
+import { EmptyObject } from "type-fest";
+import { Nullable } from "../../../Contexts/Shared/Domain";
+import { isController } from "../../../Contexts/Shared/Infrastructure";
 
 @isController()
-export abstract class BaseController<RequestBody = {}, RequestParams = {}> {
+export abstract class BaseController<RequestBody = EmptyObject, RequestParams = EmptyObject> {
   protected request!: FastifyRequest;
   protected response!: FastifyReply;
 

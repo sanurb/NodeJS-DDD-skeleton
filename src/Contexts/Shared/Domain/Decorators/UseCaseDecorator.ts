@@ -1,4 +1,4 @@
-import { Class } from '../Utils/Class';
+import { Class } from "../Utils/Class";
 
 export const useCases = new Set<Class<unknown>>();
 export const isUseCase = (): Class<unknown> => {

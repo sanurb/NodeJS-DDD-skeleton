@@ -1,10 +1,6 @@
-import {
-  Container as DiodContainer,
-  ContainerBuilder as DiodContainerBuilder,
-  Registration,
-} from 'diod';
+import { Container as DiodContainer, ContainerBuilder as DiodContainerBuilder, Registration } from "diod";
 
-import { Class, NewableClass } from '../../../../Contexts/Shared/Domain';
+import { Class, NewableClass } from "../../../../Contexts/Shared/Domain";
 
 export type Identifier<T> = Class<T> | NewableClass<T>;
 

@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/ban-types */
-
 type Methods<T> = {
-  [P in keyof T]: T[P] extends Function ? P : never;
+  [P in keyof T]: T[P] extends (...args: any[]) => any ? P : never;
 }[keyof T];
 
 type MethodsAndProperties<T> = { [key in keyof T]: T[key] };

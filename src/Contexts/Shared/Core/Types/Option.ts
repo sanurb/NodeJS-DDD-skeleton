@@ -7,7 +7,7 @@
  * It encourages developers to consider both the presence and absence of a value, leading to more predictable
  * and maintainable code.
  */
-import { isOk, type Result } from './Result';
+import { type Result, isOk } from "./Result";
 
 /**
  * Represents an optional value: every `Option` is either `Some` and contains a value, or `None`, and does not.
@@ -124,10 +124,7 @@ export function mapOption<T, U>(option: Option<T>, fn: (value: T) => U): Option<
  * const chained = chainOption(opt, x => x > 0 ? Some(x * 2) : None); // Some(10)
  * ```
  */
-export function chainOption<T, U>(
-  option: Option<T>,
-  fn: (value: T) => Option<U>,
-): Option<U> {
+export function chainOption<T, U>(option: Option<T>, fn: (value: T) => Option<U>): Option<U> {
   return isSome(option) ? fn(option.value) : None;
 }
 

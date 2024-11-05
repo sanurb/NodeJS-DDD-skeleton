@@ -1,17 +1,19 @@
-import { FastifyReply, FastifyRequest } from 'fastify';
-import { HookHandlerDoneFunction } from 'fastify/types/hooks';
+import { FastifyReply, FastifyRequest } from "fastify";
+import { HookHandlerDoneFunction } from "fastify/types/hooks";
 
-import { type BaseController } from '../../../../Apps/Shared';
-import { Class, NewableClass } from '../../Domain';
+import { type BaseController } from "../../../../Apps/Shared";
+import { Class, NewableClass } from "../../Domain";
 
-enum AllowedHttpMethods {
-  GET = 'GET',
-  POST = 'POST',
-  PUT = 'PUT',
-  DELETE = 'DELETE',
-  PATCH = 'PATCH',
-  OPTIONS = 'OPTIONS',
-}
+const AllowedHttpMethods = {
+  GET: "GET",
+  POST: "POST",
+  PUT: "PUT",
+  DELETE: "DELETE",
+  PATCH: "PATCH",
+  OPTIONS: "OPTIONS",
+} as const;
+
+type HttpMethod = keyof typeof AllowedHttpMethods;
 
 type ControllerMiddleware = (
   request: FastifyRequest,
@@ -20,7 +22,7 @@ type ControllerMiddleware = (
 ) => Promise<void> | void;
 
 export interface ControllerArgs {
-  method: keyof typeof AllowedHttpMethods;
+  method: HttpMethod;
   path: string;
   middlewares?: ControllerMiddleware[];
   schema?: Record<string, unknown>;
