@@ -7,7 +7,7 @@
  * It encourages developers to consider both the presence and absence of a value, leading to more predictable
  * and maintainable code.
  */
-import { type Result, isOk } from './Result';
+import { isOk, type Result } from './Result';
 
 /**
  * Represents an optional value: every `Option` is either `Some` and contains a value, or `None`, and does not.

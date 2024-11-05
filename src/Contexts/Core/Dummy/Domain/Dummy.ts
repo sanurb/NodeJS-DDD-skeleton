@@ -1,4 +1,4 @@
-import { type Primitives, AggregateRoot } from '../../../Shared/Domain';
+import { AggregateRoot, type Primitives } from '../../../Shared/Domain';
 import type { PropertiesOf } from '../../../Shared/Domain/Utils/PropertiesOf';
 import type { DummyId } from './DummyId';
 import type { DummyName } from './DummyName';

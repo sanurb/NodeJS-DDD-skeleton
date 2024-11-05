@@ -10,7 +10,7 @@
  * while maintaining explicit control flow and avoiding unintentional exceptions.
  */
 
-import { type Result, AsyncResult, Err, Ok } from './Result';
+import { AsyncResult, Err, Ok, type Result } from './Result';
 
 /**
  * Unwraps a `Result`, returning the contained `Ok` value or throwing an `UnwrapError`.

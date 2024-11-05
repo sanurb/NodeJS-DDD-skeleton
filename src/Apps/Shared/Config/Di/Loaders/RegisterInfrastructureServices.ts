@@ -9,9 +9,7 @@ export const registerInfrastructureServices = (container: Container): void => {
   container
     .register(SessionMongoDbClient)
     .useFactory(() => {
-      return new MongoClient(env.mongo.mongoUri, {
-        loggerLevel: 'debug',
-      });
+      return new MongoClient(env.mongo.mongoUri);
     })
     .asSingleton();
 };

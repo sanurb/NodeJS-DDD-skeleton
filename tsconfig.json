@@ -37,7 +37,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "importsNotUsedAsValues":"remove",
   },
   "include": [
     "src/**/*.ts"

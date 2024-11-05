@@ -69,3 +69,4 @@ dist/
 .env
 
 data/
+/docker_data
