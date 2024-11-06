@@ -1,5 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 
+import { Status } from "@reflet/http";
 import { EmptyObject } from "type-fest";
 import { Nullable } from "../../../Contexts/Shared/Domain";
 import { isController } from "../../../Contexts/Shared/Infrastructure";
@@ -20,11 +21,11 @@ export abstract class BaseController<RequestBody = EmptyObject, RequestParams = 
   }
 
   protected sendOk(): void {
-    void this.response.code(204).send();
+    void this.response.code(Status.NoContent).send();
   }
 
   protected sendResponse(params: unknown, statusCode?: number): void {
-    void this.response.status(statusCode || 200).send(params);
+    void this.response.status(statusCode || Status.Ok).send(params);
   }
 
   protected userId(): Nullable<string> {

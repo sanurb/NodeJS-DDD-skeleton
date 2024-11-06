@@ -14,6 +14,9 @@ importers:
       '@fastify/helmet':
         specifier: 12.0.1
         version: 12.0.1
+      '@reflet/http':
+        specifier: ^1.0.0
+        version: 1.0.0
       bson:
         specifier: ^6.9.0
         version: 6.9.0
@@ -845,6 +848,10 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@reflet/http@1.0.0':
+    resolution: {integrity: sha512-/wOfIH2eJ3Pph3g+CyFC0sXwDmGO+vdejTpAvz94S3/027x5ItGgdwUJbYZbec9OEEs1KKoHtYi9ZawI/Vsr+A==}
+    engines: {node: '>=10'}
 
   '@sinclair/typebox@0.27.8':
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
@@ -4358,6 +4365,8 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@reflet/http@1.0.0': {}
 
   '@sinclair/typebox@0.27.8': {}
 
